@@ -5,12 +5,12 @@ const path = require('path');
 
 const PORT = process.env.PORT || 3000;
 
-app.use(express.static(path.join(__dirname, '../client/public')));
-
-// TODO: set up conditional for NODE_ENV
+if (process.env.NODE_ENV === 'production') {
+  console.log('production mode');
+  app.use('/', express.static(path.join(__dirname, '../client/build')));
+}
 
 // TODO: 404 handler
-app.get('*', (req, res) => {});
 
 // TODO: global error handler for Express middleware
 

@@ -4,8 +4,8 @@
   "description": "interviewed React frontend",
   "main": "index.js",
   "scripts": {
-    "dev": "webpack serve --open",
-    "build": "webpack",
+    "dev": "NODE_ENV=development webpack serve --open",
+    "build": "NODE_ENV=production webpack",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Peter Millspaugh",
@@ -19,6 +19,7 @@
     "@babel/preset-env": "^7.14.4",
     "@babel/preset-react": "^7.13.13",
     "babel-loader": "^8.2.2",
+    "html-webpack-plugin": "^5.3.1",
     "webpack": "^5.38.1",
     "webpack-cli": "^4.7.2",
     "webpack-dev-server": "^3.11.2"

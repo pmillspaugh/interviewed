@@ -1,18 +1,15 @@
 const path = require('path');
-// hot reload plugin
-// HtmlWebpackPlugin
-// NODE_ENV for mode
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+// hot reload plugin?
 // devServer proxy for API calls (and package.json proxy?)
-// is output.publicPath needed? https://webpack.js.org/configuration/output/#outputpublicpath
 // image loader?
 // split into multiple config files?
 
 module.exports = {
-  mode: 'development',
+  mode: process.env.NODE_ENV,
   entry: path.join(__dirname, './src/index.js'),
   output: {
     path: path.join(__dirname, './build'),
-    publicPath: '/build/',
     filename: 'bundle.js',
   },
   module: {
@@ -29,8 +26,12 @@ module.exports = {
       },
     ],
   },
-  plugins: [],
+  plugins: [
+    new HtmlWebpackPlugin({
+      template: path.join(__dirname, './public/index.html'),
+    }),
+  ],
   devServer: {
-    contentBase: './build',
+    contentBase: path.join(__dirname, './build'),
   },
 };
