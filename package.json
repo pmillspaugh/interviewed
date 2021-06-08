@@ -4,9 +4,16 @@
   "description": "interviewed Node backend",
   "main": "index.js",
   "scripts": {
-    "start": "node server/server.js",
+    "dev-server": "concurrently \"NODE_ENV=development node server/server.js\" \"cd client/ && npm run dev\"",
+    "prod-server": "concurrently \"NODE_ENV=production node server/server.js\" \"cd client/ && npm run build\"",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Peter Millspaugh",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1"
+  },
+  "devDependencies": {
+    "concurrently": "^6.2.0"
+  }
 }
