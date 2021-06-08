@@ -3,7 +3,6 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 // hot reload plugin?
 // devServer proxy for API calls (and package.json proxy?)
 // image loader?
-// split into multiple config files?
 
 module.exports = {
   mode: process.env.NODE_ENV,
@@ -33,5 +32,8 @@ module.exports = {
   ],
   devServer: {
     contentBase: path.join(__dirname, './build'),
+    proxy: {
+      '/api': 'http://localhost:3000'
+    }
   },
 };
