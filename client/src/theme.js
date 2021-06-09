@@ -13,10 +13,12 @@ const colors = {
 
 const lightTheme = {
   backgroundPrimary: colors.lightBlue,
+  colorPrimary: colors.darkBlue,
 };
 
 const darkTheme = {
   backgroundPrimary: colors.darkBrown,
+  colorPrimary: colors.lightBlue,
 };
 
 export { lightTheme, darkTheme };

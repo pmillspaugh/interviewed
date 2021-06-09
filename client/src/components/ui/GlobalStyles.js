@@ -13,7 +13,8 @@ const AppGlobalStyles = createGlobalStyle`
   /* Set root height to 100% so that App min-height can be set to 100% */
   html, body, #root {
     height: 100%;
-    background-color: ${(p) => p.theme.backgroundPrimary}
+    background-color: ${(p) => p.theme.backgroundPrimary};
+    color: ${(p) => p.theme.colorPrimary}
   }
 
   /* Typography */
