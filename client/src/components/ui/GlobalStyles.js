@@ -1,16 +1,25 @@
 // CSS reset adapted from Piccalilli: https://piccalil.li/blog/a-modern-css-reset
 // Some resets adopted from Josh Comeau's CSS-for-JS
+import React from 'react';
 import { createGlobalStyle } from 'styled-components';
+import { useSelector } from 'react-redux';
 
-const GlobalStyles = createGlobalStyle`
+const GlobalStyles = () => {
+  const { currentTheme } = useSelector((state) => state.theme);
+  return <AppGlobalStyles theme={currentTheme} />;
+};
+
+const AppGlobalStyles = createGlobalStyle`
   /* Set root height to 100% so that App min-height can be set to 100% */
   html, body, #root {
     height: 100%;
+    background-color: ${(p) => p.theme.backgroundPrimary}
   }
 
   /* Typography */
   html {
     font-size: 16px;
+    font-family: sans-serif;
   }
 `;
 

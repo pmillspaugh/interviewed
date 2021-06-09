@@ -1,6 +1,9 @@
 import React from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import { Provider } from 'react-redux';
 import styled from 'styled-components';
+
+import store from '../store';
 import { GlobalStyles, CssReset } from './ui/GlobalStyles';
 import MaxWidthWrapper from './ui/MaxWidthWrapper';
 import Header from './Header';
@@ -11,30 +14,32 @@ import Dashboard from './Dashboard';
 
 const App = () => {
   return (
-    <AppWrapper>
-      <Header />
-      <MaxWidthWrapper>
-        <Router>
-          <Switch>
-            <Route path='/login'>
-              <Login />;
-            </Route>
-            <Route path='/signup'>
-              <Signup />;
-            </Route>
-            <Route path='/dashboard'>
-              <Dashboard />
-            </Route>
-            <Route path='/'>
-              <Dashboard />
-            </Route>
-          </Switch>
-        </Router>
-      </MaxWidthWrapper>
-      <GlobalStyles />
-      <CssReset />
-      <Footer />
-    </AppWrapper>
+    <Provider store={store}>
+      <AppWrapper>
+        <Header />
+        <MaxWidthWrapper>
+          <Router>
+            <Switch>
+              <Route path='/login'>
+                <Login />;
+              </Route>
+              <Route path='/signup'>
+                <Signup />;
+              </Route>
+              <Route path='/dashboard'>
+                <Dashboard />
+              </Route>
+              <Route path='/'>
+                <Dashboard />
+              </Route>
+            </Switch>
+          </Router>
+        </MaxWidthWrapper>
+        <GlobalStyles />
+        <CssReset />
+        <Footer />
+      </AppWrapper>
+    </Provider>
   );
 };
 
