@@ -9,16 +9,25 @@ const colors = {
   darkBlue: 'hsl(225 77% 45%)',
   mediumBlue: 'hsl(211 77% 69%)',
   lightBlue: 'hsl(207 100% 94%)',
+  lightGray: 'hsl(207 86% 96%)',
 };
 
 const lightTheme = {
-  backgroundPrimary: colors.lightBlue,
+  backgroundPrimary: colors.lightGray,
+  backgroundSecondary: colors.mediumGreen,
   colorPrimary: colors.darkBlue,
+  colorSecondary: colors.lightGreen,
+  borderPrimary: colors.mediumGreen,
+  shadowPrimary: colors.mediumGreen,
 };
 
 const darkTheme = {
   backgroundPrimary: colors.darkBrown,
+  backgroundSecondary: colors.mediumGreen,
   colorPrimary: colors.lightBlue,
+  colorSecondary: colors.lightGreen,
+  borderPrimary: colors.mediumGreen,
+  shadowPrimary: colors.lightGreen,
 };
 
-export { lightTheme, darkTheme };
+export { colors, lightTheme, darkTheme };

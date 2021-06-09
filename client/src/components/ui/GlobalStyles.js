@@ -14,7 +14,8 @@ const AppGlobalStyles = createGlobalStyle`
   html, body, #root {
     height: 100%;
     background-color: ${(p) => p.theme.backgroundPrimary};
-    color: ${(p) => p.theme.colorPrimary}
+    color: ${(p) => p.theme.colorPrimary};
+    font-family: 'Ubuntu', sans-serif;
   }
 
   /* Typography */
