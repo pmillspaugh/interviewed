@@ -5,4 +5,9 @@ const toggleTheme = () => ({
   payload: null,
 });
 
-export { toggleTheme };
+const loginUser = () => ({
+  type: actionTypes.LOGIN_USER,
+  payload: null,
+});
+
+export { toggleTheme, loginUser };

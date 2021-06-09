@@ -1,13 +1,19 @@
 import React, { StrictMode } from 'react';
 import ReactDOM from 'react-dom';
+import { Provider } from 'react-redux';
+
 import App from './components/App';
-// import Redux store and Provider
-// import global styles
+import store from './store';
+import { GlobalStyles, CssReset } from './components/ui/GlobalStyles';
 // add analytics?
 
 ReactDOM.render(
   <StrictMode>
-    <App />
+    <Provider store={store}>
+      <App />
+      <GlobalStyles />
+      <CssReset />
+    </Provider>
   </StrictMode>,
   document.getElementById('root')
 );

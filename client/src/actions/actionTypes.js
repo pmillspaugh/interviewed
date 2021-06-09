@@ -1,3 +1,4 @@
 const TOGGLE_THEME = 'TOGGLE_THEME';
+const LOGIN_USER = 'LOGIN_USER';
 
-export { TOGGLE_THEME };
+export { TOGGLE_THEME, LOGIN_USER };
