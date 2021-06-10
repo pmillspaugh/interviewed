@@ -26,30 +26,31 @@ const CompanyTile = ({ company }) => {
 
   return (
     <Tile>
-      <p>
-        <strong>Company: </strong>
-        {company.companyName}
-      </p>
-      <p>
-        <strong>Role: </strong>
-        {company.role}
-      </p>
-      <p>
-        <strong>City: </strong>
-        {company.city}
-      </p>
-      <p>
-        <strong>Applied? </strong>
-        {company.applied ? 'Yes' : 'No'}
-      </p>
-      <p>
-        <strong>Contacts: </strong>
-        {company.contacts}
-      </p>
-      <p>
-        <strong>Notes: </strong>
-        {company.notes}
-      </p>
+      <CompanyName>{company.companyName.toUpperCase()}</CompanyName>
+      <div>
+        <h3>Role: </h3>
+        <p>{company.role}</p>
+      </div>
+      <RowSpacer />
+      <div>
+        <h3>City: </h3>
+        <p>{company.city}</p>
+      </div>
+      <RowSpacer />
+      <div>
+        <h3>Applied? </h3>
+        <p>{company.applied ? 'Yes' : 'No'}</p>
+      </div>
+      <RowSpacer />
+      <div>
+        <h3>Contacts: </h3>
+        <p>{company.contacts}</p>
+      </div>
+      <RowSpacer />
+      <div>
+        <h3>Notes: </h3>
+        <p>{company.notes}</p>
+      </div>
       <button>Edit</button>
       <button onClick={handleDeleteTileClick}>Delete</button>
     </Tile>
@@ -67,6 +68,18 @@ const Tile = styled.article`
   background-color: ${colors.lightBlue};
   color: ${colors.mediumBrown};
   box-shadow: 0 0 10px ${colors.mediumGreen};
+`;
+
+const RowSpacer = styled.div`
+  width: 100%;
+  margin: 12px 0;
+  border-bottom: 2px solid ${colors.mediumBrown};
+`;
+
+const CompanyName = styled.h2`
+  width: 100%;
+  margin: 16px 0;
+  text-align: center;
 `;
 
 export default CompanyTile;

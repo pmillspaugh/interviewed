@@ -60,22 +60,32 @@ const AddCompany = () => {
         // once response comes back, dispatch update to user store
         dispatch(addCompany(companyList));
       });
+    // reset state for inputs
+    setCompanyName('');
+    setRole('');
+    setCity('');
+    setApplied(false);
+    setContacts('');
+    setNotes('');
   };
 
   return (
     <AddCompanyWrapper>
       <input
         type='text'
+        value={companyName}
         placeholder='Company'
         onChange={(e) => handleCompanyNameChange(e)}
       />
       <input
         type='text'
+        value={role}
         placeholder='Role'
         onChange={(e) => handleRoleChange(e)}
       />
       <input
         type='text'
+        value={city}
         placeholder='City'
         onChange={(e) => handleCityChange(e)}
       />
@@ -83,17 +93,20 @@ const AddCompany = () => {
         Applied?
         <input
           name='applied'
+          value={applied}
           type='checkbox'
           onChange={(e) => handleAppliedChange(e)}
         />
       </label>
       <input
         type='text'
+        value={contacts}
         placeholder='Contacts'
         onChange={(e) => handleContactsChange(e)}
       />
       <input
         type='text'
+        value={notes}
         placeholder='Notes'
         onChange={(e) => handleNotesChange(e)}
       />
