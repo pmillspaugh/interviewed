@@ -59,7 +59,6 @@ const ThemeToggleCircle = styled.span`
   left: ${(p) => (p.darkTheme ? '24px' : '4px')};
   border-radius: 50%;
   background-color: ${colors.lightBlue};
-  box-shadow: 0 0 10px ${colors.darkBlue};
   transition: 0.25s;
 `;
 
