@@ -8,10 +8,12 @@ const initialState = {
 const userReducer = (state = initialState, action) => {
   switch (action.type) {
     case 'LOGIN_USER':
+      // first ~102 characters of google auth token are always the same
+      const authToken = action.payload.authToken.substring(0, 100);
       return {
         ...state,
         loggedIn: true,
-        authToken: action.payload.authToken,
+        authToken: authToken,
         name: action.payload.name,
       };
     case 'LOAD_COMPANY_LIST':

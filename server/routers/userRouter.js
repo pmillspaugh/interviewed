@@ -17,4 +17,8 @@ userRouter.post('/add-company', userController.addCompany, (req, res) => {
   return res.status(201).json(res.locals.companyList);
 });
 
+userRouter.put('/delete-company', userController.deleteCompany, (req, res) => {
+  return res.status(201).json(res.locals.companyList);
+})
+
 module.exports = userRouter;

@@ -7,7 +7,7 @@ import MaxWidthWrapper from './ui/MaxWidthWrapper';
 import Header from './Header';
 import Footer from './Footer';
 import Login from './Login';
-import Dashboard from './Dashboard';
+import Dashboard from './Dashboard/Dashboard';
 
 const App = () => {
   const loggedIn = useSelector((state) => state.user.loggedIn);

@@ -20,4 +20,4 @@ const addCompany = (companyList) => ({
   payload: companyList,
 });
 
-export { toggleTheme, loginUser, addCompany, loadCompanyList };
+export { toggleTheme, loginUser, loadCompanyList, addCompany };

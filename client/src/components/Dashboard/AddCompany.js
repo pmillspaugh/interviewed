@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
 import { useSelector, useDispatch } from 'react-redux';
-import { addCompany } from '../actions/actionCreators';
-import { colors } from '../theme';
+import { addCompany } from '../../actions/actionCreators';
+import { colors } from '../../theme';
 
 const AddCompany = () => {
   const user = useSelector((state) => state.user);
@@ -38,7 +38,7 @@ const AddCompany = () => {
     e.preventDefault();
 
     const postRequestBody = {
-      authToken: user.authToken.substring(0, 100),
+      authToken: user.authToken,
       companyName,
       role,
       city,
@@ -57,7 +57,6 @@ const AddCompany = () => {
     })
       .then((res) => res.json())
       .then((companyList) => {
-        console.log({ companyList });
         // once response comes back, dispatch update to user store
         dispatch(addCompany(companyList));
       });
