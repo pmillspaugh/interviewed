@@ -15,13 +15,12 @@ const AppGlobalStyles = createGlobalStyle`
     height: 100%;
     background-color: ${(p) => p.theme.backgroundPrimary};
     color: ${(p) => p.theme.colorPrimary};
-    font-family: 'Ubuntu', sans-serif;
+    font-family: 'Work Sans', sans-serif;
   }
 
   /* Typography */
   html {
-    font-size: 16px;
-    font-family: sans-serif;
+    font-size: 14px;
   }
 `;
 
