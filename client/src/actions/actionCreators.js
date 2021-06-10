@@ -5,9 +5,19 @@ const toggleTheme = () => ({
   payload: null,
 });
 
-const loginUser = () => ({
+const loginUser = ({ authToken, name }) => ({
   type: actionTypes.LOGIN_USER,
-  payload: null,
+  payload: { authToken, name },
 });
 
-export { toggleTheme, loginUser };
+const loadCompanyList = (companyList) => ({
+  type: actionTypes.LOAD_COMPANY_LIST,
+  payload: companyList,
+});
+
+const addCompany = (companyList) => ({
+  type: actionTypes.ADD_COMPANY,
+  payload: companyList,
+});
+
+export { toggleTheme, loginUser, addCompany, loadCompanyList };
