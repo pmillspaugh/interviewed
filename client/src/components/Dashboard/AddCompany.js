@@ -4,7 +4,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { addCompany } from '../../actions/actionCreators';
 import { colors } from '../../theme';
 
-const AddCompany = () => {
+const AddCompany = ({ closeModal }) => {
   const user = useSelector((state) => state.user);
   const dispatch = useDispatch();
 
@@ -36,6 +36,9 @@ const AddCompany = () => {
 
   const handleAddCompanyClick = (e) => {
     e.preventDefault();
+
+    // close the modal
+    closeModal();
 
     const postRequestBody = {
       authToken: user.authToken,
