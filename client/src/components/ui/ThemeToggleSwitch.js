@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { Sun, Moon } from 'react-feather';
 import { toggleTheme } from '../../actions/actionCreators';
 import VisuallyHidden from './VisuallyHidden';
@@ -8,6 +8,7 @@ import { colors } from '../../theme';
 
 const ThemeToggleSwitch = () => {
   const [darkTheme, setDarkTheme] = useState(false);
+  const { currentTheme } = useSelector((state) => state.theme);
   const dispatch = useDispatch();
 
   const handleThemeToggleClick = () => {
@@ -18,8 +19,8 @@ const ThemeToggleSwitch = () => {
   return (
     <ThemeToggleButton onClick={handleThemeToggleClick}>
       <ThemeToggleLabel htmlFor='toggle-switch'>
-        <Moon size={18} color={colors.lightBlue} />
-        <Sun size={18} color={colors.lightBlue} />
+        <Moon size={18} color={colors.offWhite} />
+        <Sun size={18} color={colors.offWhite} />
         <ThemeToggleCircle darkTheme={darkTheme}></ThemeToggleCircle>
       </ThemeToggleLabel>
       <VisuallyHidden>Change theme</VisuallyHidden>
@@ -31,9 +32,13 @@ const ThemeToggleButton = styled.button`
   width: 48px;
   height: 26px;
   padding: 0;
-  background-color: ${colors.darkGreen};
+  background-color: ${colors.mediumGreen};
   border: none;
   border-radius: 13px;
+
+  &:hover {
+    cursor: pointer;
+  }
 `;
 
 const ThemeToggleLabel = styled.label`
@@ -41,6 +46,10 @@ const ThemeToggleLabel = styled.label`
   display: flex;
   align-items: center;
   justify-content: space-evenly;
+
+  &:hover {
+    cursor: pointer;
+  }
 `;
 
 const ThemeToggleCircle = styled.span`
