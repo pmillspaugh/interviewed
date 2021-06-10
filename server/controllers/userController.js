@@ -61,6 +61,44 @@ userController.addCompany = async (req, res, next) => {
 };
 
 // TODO: finding company by name is likely not strict enough -- e.g. if user accidentally adds same company twice
+userController.editCompany = async (req, res, next) => {
+  try {
+    // save fields from request body
+    const { user, companyName, role, city, applied, contacts, notes } =
+      req.body;
+
+    // fetch the user's companyList
+    const { companyList } = await User.findOne({
+      authToken: user.authToken,
+    }).exec();
+
+    // find the company to be updated and update with request body
+    const updatedCompanyList = companyList.map((company) => {
+      if (company.companyName === companyName) {
+        return { companyName, role, city, applied, contacts, notes };
+      } else {
+        return company;
+      }
+    });
+
+    // update the user's companyList in the database
+    const updatedUser = await User.findOneAndUpdate(
+      { authToken: user.authToken },
+      { $set: { companyList: updatedCompanyList } },
+      { new: true }
+    );
+
+    // save the updated company list on in res.locals to send back to frontend as response
+    res.locals.companyList = updatedUser.companyList;
+
+    return next();
+  } catch (error) {
+    // ! update error handling
+    console.log({ error });
+  }
+};
+
+// TODO: finding company by name is likely not strict enough -- e.g. if user accidentally adds same company twice
 userController.deleteCompany = async (req, res, next) => {
   try {
     // save user and companyName from request body

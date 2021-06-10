@@ -1,12 +1,16 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import styled from 'styled-components';
 import { loadCompanyList } from '../../actions/actionCreators';
+import Modal from '../ui/Modal';
+import EditCompany from './EditCompany';
 
 const CompanyTile = ({ company }) => {
   const user = useSelector((state) => state.user);
   const { currentTheme } = useSelector((state) => state.theme);
   const dispatch = useDispatch();
+
+  const [editCompanyModal, setEditCompanyModal] = useState(false);
 
   const handleDeleteTileClick = () => {
     // update user document in the database to remove the company
@@ -22,6 +26,14 @@ const CompanyTile = ({ company }) => {
         // update user in the redux store
         dispatch(loadCompanyList(companyList));
       });
+  };
+
+  const openEditModal = () => {
+    setEditCompanyModal(true);
+  };
+
+  const closeEditModal = () => {
+    setEditCompanyModal(false);
   };
 
   return (
@@ -46,10 +58,17 @@ const CompanyTile = ({ company }) => {
         <Information theme={currentTheme}>{company.notes}</Information>
       </CompanyInfoWrapper>
       <ButtonsWrapper>
-        <EditDeleteButton theme={currentTheme}>Edit</EditDeleteButton>
+        <EditDeleteButton theme={currentTheme} onClick={openEditModal}>
+          Edit
+        </EditDeleteButton>
         <EditDeleteButton theme={currentTheme} onClick={handleDeleteTileClick}>
           Delete
         </EditDeleteButton>
+        {editCompanyModal && (
+          <Modal>
+            <EditCompany company={company} closeEditModal={closeEditModal} />
+          </Modal>
+        )}
       </ButtonsWrapper>
     </Tile>
   );
