@@ -33,7 +33,8 @@ module.exports = {
   devServer: {
     contentBase: path.join(__dirname, './build'),
     proxy: {
-      '/api': 'http://localhost:3000'
-    }
+      '/api': 'http://localhost:3000',
+    },
+    hot: true,
   },
 };
