@@ -20,8 +20,9 @@ const Login = () => {
               googleAuth
                 .signIn()
                 .then((googleUser) => {
-                  const id_token = googleUser.getAuthResponse().id_token;
-                  dispatch(loginUser(id_token));
+                  const name = googleUser.At.kV;
+                  const authToken = googleUser.getAuthResponse().id_token;
+                  dispatch(loginUser({ authToken, name }));
                 })
                 .catch(({ error }) => console.log({ error }));
             },
