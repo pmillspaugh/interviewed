@@ -7,8 +7,9 @@ import CompanyTile from './CompanyTile';
 import Modal from '../ui/Modal';
 
 const Dashboard = () => {
-  // access the user from redux store
+  // access the user and theme from redux store
   const user = useSelector((state) => state.user);
+  const { currentTheme } = useSelector((state) => state.theme);
   const dispatch = useDispatch();
 
   // store state of add company modal
@@ -40,7 +41,9 @@ const Dashboard = () => {
         {`${user.name}'s job search`.toUpperCase()}
       </TrackerHeading>
       <TrackerGrid>
-        <button onClick={openModal}>Add company</button>
+        <AddCompanyButton theme={currentTheme} onClick={openModal}>
+          Add company
+        </AddCompanyButton>
         {addCompanyModal && (
           <Modal>
             <AddCompany closeModal={closeModal} />
@@ -67,7 +70,23 @@ const TrackerHeading = styled.h1`
 const TrackerGrid = styled.section`
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-  grid-gap: 20px;
+  grid-gap: 40px;
+`;
+
+const AddCompanyButton = styled.button`
+  font-size: 1.5rem;
+  font-weight: bold;
+  background-color: ${(p) => p.theme.backgroundSecondary};
+  color: ${(p) => p.theme.borderPrimary};
+  border: 2px solid ${(p) => p.theme.borderPrimary};
+  border-radius: 10px;
+
+  &:hover {
+    cursor: pointer;
+    background-color: ${(p) => p.theme.borderPrimary};
+    color: ${(p) => p.theme.backgroundPrimary};
+    border: 2px solid ${(p) => p.theme.borderPrimary};
+  }
 `;
 
 export default Dashboard;

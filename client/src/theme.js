@@ -2,14 +2,8 @@
 const colors = {
   darkBlack: 'hsl(246, 42%, 11%)',
   mediumBlack: 'hsl(246, 12%, 21%)',
-  darkBrown: 'hsl(48 24% 23%)',
-  mediumBrown: 'hsl(48 24% 23%)',
-  lightBrown: 'hsl(46 29% 85%)',
-  darkGreen: 'hsl(155 27% 30%)',
   mediumGreen: 'hsl(166 36% 52%)',
-  lightGreen: 'hsl(152 74% 88%)',
   darkBlue: 'hsl(225 77% 45%)',
-  mediumBlue: 'hsl(211 77% 69%)',
   lightBlue: 'hsl(207 100% 94%)',
   offWhite: 'hsl(207 95% 100%)',
   lightGray: 'hsl(207 86% 96%)',
@@ -33,6 +27,7 @@ const darkTheme = {
   colorPrimary: colors.lightBlue,
   colorSecondary: colors.lightGray,
   borderPrimary: colors.lightGray,
+  borderSecondary: colors.lightGray,
   shadowPrimary: colors.lightGray,
 };
 
